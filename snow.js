@@ -5,6 +5,7 @@ for (let i = 0; i < 50; i += 1){
     div.className = "snowflake";
     document.body.insertBefore(div, document.body.firstChild);
     snow[i] = div;
+    speed[i] = Math.random() * (4 - 1) + 1;
 }
 
 let max = snow.length;
@@ -25,7 +26,6 @@ let timer = setInterval(function() {
 
 function draw() {
     for (let i = 0; i < max; i += 1){
-        speed[i] = Math.random() * (4 - 1) + 1;;
     snow[i].style.top = parseInt(snow[i].style.top) + speed[i];
     if (parseInt(snow[i].style.top) > document.body.clientHeight - 50){
         snow[i].style.top = -50;
