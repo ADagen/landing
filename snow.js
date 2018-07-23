@@ -1,4 +1,5 @@
 const snow = [];
+const speed = [];
 for (let i = 0; i < 50; i += 1){
     let div = document.createElement('div');
     div.className = "snowflake";
@@ -24,9 +25,10 @@ let timer = setInterval(function() {
 
 function draw() {
     for (let i = 0; i < max; i += 1){
-    snow[i].style.top = parseInt(snow[i].style.top) + 2;
+        speed[i] = Math.random() * (4 - 1) + 1;;
+    snow[i].style.top = parseInt(snow[i].style.top) + speed[i];
     if (parseInt(snow[i].style.top) > document.body.clientHeight - 50){
-        snow[i].style.top = 0;
+        snow[i].style.top = -50;
     }
     }
 }
