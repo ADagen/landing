@@ -16,23 +16,17 @@ for (let i = 0; i < max; i += 1){
     snow[i].style.top = y_position;
 }
 
-let start = Date.now();
 let timer = setInterval(function() {
     // вычислить сколько времени прошло с начала анимации
-    let timePassed = Date.now() - start;
     // рисует состояние анимации, соответствующее времени timePassed
-    draw(timePassed);
+    draw();
 }, 20);
 
-function draw(timePassed) {
+function draw() {
     for (let i = 0; i < max; i += 1){
-    snow[i].style.top = parseInt(snow[i].style.top) + timePassed / 100;
-    //console.log('Снежинка 1:', snow[0].style.top, timePassed / 100, document.body.clientHeight);
-    let a = parseInt(snow[i].style.top);
-    let b = document.body.clientHeight;
-    console.log(a > b);
-    if (a > b){
-        a = 0;
+    snow[i].style.top = parseInt(snow[i].style.top) + 2;
+    if (parseInt(snow[i].style.top) > document.body.clientHeight - 50){
+        snow[i].style.top = 0;
     }
     }
 }
